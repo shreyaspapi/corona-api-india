@@ -20,6 +20,10 @@ def state_data():
         state_data["_".join(i.split())] = j
       except:
         state_data[i] = j
+    
+    for i, j in state_data.items():
+        for k, l in state_data[i].items():
+          state_data[i][k] = str(l)
     da = [state_data]
     return json.dumps(da)
 
