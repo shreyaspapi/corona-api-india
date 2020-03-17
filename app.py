@@ -12,20 +12,15 @@ app = Flask(__name__)
 
 @app.route("/state_data")
 def state_data():
-    state_data = {}
+    data_list = []
     for i, j in di["stateData"].items():
-      if "&" in i:
-        continue
-      try:
-        state_data["_".join(i.split())] = j
-      except:
-        state_data[i] = j
-    
-    for i, j in state_data.items():
-        for k, l in state_data[i].items():
-          state_data[i][k] = str(l)
-    da = [state_data]
-    return json.dumps(da)
+      state_data = {}
+      state_data["state"] = i
+      for k, l in j.items():
+        state_data[k] = str(l)
+      data_list.append(state_data)
+
+    return json.dumps(data_list)
 
 
 @app.route("/country_data")
