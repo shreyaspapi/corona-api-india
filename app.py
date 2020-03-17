@@ -16,8 +16,10 @@ def state_data():
     for i, j in di["stateData"].items():
       state_data = {}
       state_data["state"] = i
+      state_data["id"] = len(data_list) + 1
       for k, l in j.items():
         state_data[k] = str(l)
+
       data_list.append(state_data)
 
     return json.dumps(data_list)
