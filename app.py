@@ -20,7 +20,7 @@ def state_data():
       for k, l in j.items():
         state_data[k] = str(l)
 
-      if state_data["cases"] != 0:
+      if state_data["cases"] != "0":
         data_list.insert(0, state_data)
       else:
         data_list.append(state_data)
