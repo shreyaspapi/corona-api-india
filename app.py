@@ -13,6 +13,14 @@ app = Flask(__name__)
 @app.route("/data")
 def state_data():
     data_list = di["data"]["regional"]
+    
+    for data in range(len(data_list)):
+        a = data_list[data]["confirmedCasesIndian"]
+        b = data_list[data]["confirmedCasesForeign"]
+        data_list[data]["total"] = a + b 
+        data_list[data]["id"] = data
+
+
 
     return json.dumps(data_list)
 
