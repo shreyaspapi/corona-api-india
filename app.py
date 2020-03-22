@@ -23,6 +23,7 @@ def state_data():
         if d[k]["confirmed"] == "0":
             break
         data_dict["total"] = d[k]["confirmed"]
+        data_dict["loc"] = d[k]["state"]
         data_dict["id"] = k
         data_dict["confirmedCasesIndian"] = d[k]["active"]
         data_dict["confirmedCasesForeign"] = d[k]["active"]
