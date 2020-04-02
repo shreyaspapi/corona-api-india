@@ -30,7 +30,7 @@ def state_data():
         data_dict["active"] = d[k]["active"]
         data_dict["deaths"] = d[k]["deaths"]
         data_dict["id"] = k
-        data_dict["lastupdatedtime"] = str(now - datetime.strptime(d[k]["lastupdatedtime"], '%d/%m/%Y %H:%M:%S').replace(tzinfo=india)).split(".")[0][1:]
+        data_dict["lastupdatedtime"] = str(now - datetime.strptime(d[k]["lastupdatedtime"], '%d/%m/%Y %H:%M:%S').replace(tzinfo=india)).split(".")[0]
         data_dict["recovered"] = d[k]["recovered"]
         data_dict["state"] = d[k]["state"]
         data_list.append(data_dict)
@@ -39,4 +39,3 @@ def state_data():
 
 if __name__ == '__main__':
    app.run()
- 
