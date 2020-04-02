@@ -2,10 +2,9 @@ from flask import Flask
 import requests
 from flask import jsonify
 import json
-
+from datetime import datetime
 
 app = Flask(__name__)
-
 
 
 @app.route("/data")
@@ -23,11 +22,13 @@ def state_data():
         if d[k]["confirmed"] == "0":
             break
 
+        now  = datetime.now()
+
         data_dict["confirmed"] = d[k]["confirmed"]
         data_dict["active"] = d[k]["active"]
         data_dict["deaths"] = d[k]["deaths"]
         data_dict["id"] = k
-        data_dict["lastupdatedtime"] = d[k]["lastupdatedtime"]
+        data_dict["lastupdatedtime"] = str(now - datetime.strptime(d[k]["lastupdatedtime"], '%d/%m/%Y %H:%M:%S')).split(".")[0]
         data_dict["recovered"] = d[k]["recovered"]
         data_dict["state"] = d[k]["state"]
         data_list.append(data_dict)
