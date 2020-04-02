@@ -22,13 +22,14 @@ def state_data():
         data_dict = {}
         if d[k]["confirmed"] == "0":
             break
-        data_dict["total"] = d[k]["confirmed"]
-        data_dict["loc"] = d[k]["state"]
-        data_dict["id"] = k
-        data_dict["confirmedCasesIndian"] = d[k]["active"]
-        data_dict["confirmedCasesForeign"] = d[k]["active"]
-        data_dict["discharged"] = d[k]["recovered"]
+
+        data_dict["confirmed"] = d[k]["confirmed"]
+        data_dict["active"] = d[k]["active"]
         data_dict["deaths"] = d[k]["deaths"]
+        data_dict["id"] = k
+        data_dict["lastupdatedtime"] = d[k]["lastupdatedtime"]
+        data_dict["recovered"] = d[k]["recovered"]
+        data_dict["state"] = d[k]["state"]
         data_list.append(data_dict)
     return json.dumps(data_list)
 
