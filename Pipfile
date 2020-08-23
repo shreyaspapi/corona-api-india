@@ -8,7 +8,7 @@ gunicorn = "*"
 flask = "*"
 requests = "*"
 pytz = "*"
-flask-cors
+flask-cors = "*"
 
 [dev-packages]
 
