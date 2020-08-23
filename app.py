@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 import requests
 from flask import jsonify
 import json
@@ -6,6 +6,15 @@ from datetime import datetime
 from pytz import timezone
 
 app = Flask(__name__)
+
+
+@app.route("/recognition")
+def upload_file():
+   if request.method == 'POST':
+      f = request.files['file']
+      data = ["yes", "no"]
+      response = {"description": data[1]}
+      return json.dumps(response)
 
 @app.route("/data")
 def state_data():
