@@ -5,16 +5,18 @@ import json
 from datetime import datetime
 from pytz import timezone
 from flask_cors import CORS
+import time
 
 app = Flask(__name__)
-cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
+CORS(app)
 
-@app.route("/recognition")
+@app.route("/recognition", methods = ['POST'])
 def upload_file():
    if request.method == 'POST':
       f = request.files['file']
       data = ["yes", "no"]
       response = {"description": data[1]}
+      time.sleep(5)
       return json.dumps(response)
 
 @app.route("/data")
