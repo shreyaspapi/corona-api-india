@@ -4,9 +4,10 @@ from flask import jsonify
 import json
 from datetime import datetime
 from pytz import timezone
+from flask_cors import CORS
 
 app = Flask(__name__)
-
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 @app.route("/recognition")
 def upload_file():
