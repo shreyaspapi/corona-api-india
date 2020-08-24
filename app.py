@@ -16,7 +16,7 @@ def upload_file():
       f = request.files['file']
       data = ["Pneumonia"]
       response = {"description": data[0]}
-      time.sleep(5)
+      time.sleep(10)
       return json.dumps(response)
 
 @app.route("/data")
