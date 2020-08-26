@@ -14,7 +14,7 @@ CORS(app)
 def upload_file():
    if request.method == 'POST':
       f = request.files['file']
-      data = ["Pneumonia"]
+      data = ["No lungs found"]
       response = {"description": data[0]}
       time.sleep(10)
       return json.dumps(response)
